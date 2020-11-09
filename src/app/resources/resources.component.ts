@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Resource } from '../resource';
+import { RESOURCES } from '../mock-resources';
 
 @Component({
   selector: 'app-resources',
@@ -8,25 +8,10 @@ import { Resource } from '../resource';
 })
 export class ResourcesComponent implements OnInit {
 
-  matter: Resource = {
-    id: 1,
-    name: 'Materie'
-  };
-
-  energy: Resource = {
-    id: 2,
-    name: 'Energie'
-  };
-
-  space: Resource = {
-    id: 3,
-    name: 'Raum'
-  };
-
-  time: Resource = {
-    id: 4,
-    name: 'Zeit'
-  };
+  matter = RESOURCES[0];
+  energy = RESOURCES[1];
+  space = RESOURCES[2];
+  time = RESOURCES[3];
 
   constructor() { }
 
