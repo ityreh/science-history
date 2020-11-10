@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RESOURCES } from '../mock-resources';
+import { ContentService } from '../content.service';
+import { Resource } from '../resource';
+import { ResourceService } from '../resource.service';
 
 @Component({
   selector: 'app-resources',
@@ -8,14 +10,33 @@ import { RESOURCES } from '../mock-resources';
 })
 export class ResourcesComponent implements OnInit {
 
-  matter = RESOURCES[0];
-  energy = RESOURCES[1];
-  space = RESOURCES[2];
-  time = RESOURCES[3];
+  physicsResources: Resource[] | undefined;
+  chemistryResources: Resource[] | undefined;
+  biologyResources: Resource[] | undefined;
 
-  constructor() { }
+  selectedResources: Resource[] | undefined;
+
+  constructor(private resourceService: ResourceService, private contentService: ContentService) { }
 
   ngOnInit(): void {
+    this.getResources();
+    this.selectedResources = this.physicsResources;
   }
 
+  onSelect(subject: string) {
+    if (subject == 'Physik') {
+      this.selectedResources = this.physicsResources;
+    } else if (subject == 'Chemie') {
+      this.selectedResources = this.chemistryResources;
+    } else if (subject == 'Biologie') {
+      this.selectedResources = this.biologyResources;
+    }
+    this.contentService.add('ResourceComponent: Select subject ${slectedSubject[0].subject}');
+  }
+
+  getResources(): void {
+    this.resourceService.getResources('Physik').subscribe(resources => this.physicsResources = resources);
+    this.resourceService.getResources('Chemie').subscribe(resources => this.chemistryResources = resources);
+    this.resourceService.getResources('Biologie').subscribe(resources => this.biologyResources = resources);
+  }
 }

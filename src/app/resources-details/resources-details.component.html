@@ -1,0 +1,9 @@
+<div *ngIf="resources">
+    <div class="row">
+        <div class="col-3" *ngFor="let resource of resources">
+            <h2>{{resource.name | uppercase}}</h2>
+            <div><span>name: </span>{{resource.name}}</div>
+            <div><span>subject: </span>{{resource.subject}}</div>
+        </div>
+    </div>
+</div>

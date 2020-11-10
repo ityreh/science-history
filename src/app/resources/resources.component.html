@@ -1,36 +1,15 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-3">
-            <h2>{{matter.name | uppercase}}</h2>
-            <div><span>id: </span>{{matter.id}}</div>
-            <div><span>name: </span>{{matter.name}}</div>
-        </div>
-        <div class="col-3">
-            <h2>{{energy.name | uppercase}}</h2>
-            <div><span>id: </span>{{energy.id}}</div>
-            <div><span>name: </span>{{energy.name}}</div>
-        </div>
-        <div class="col-3">
-            <h2>{{space.name | uppercase}}</h2>
-            <div><span>id: </span>{{space.id}}</div>
-            <div><span>name: </span>{{space.name}}</div>
-        </div>
-        <div class="col-3">
-            <h2>{{time.name | uppercase}}</h2>
-            <div><span>id: </span>{{time.id}}</div>
-            <div><span>name: </span>{{time.name}}</div>
-        </div>
-    </div>
+    <app-resources-details [resources]="selectedResources"></app-resources-details>
 
     <div class="row">
         <div class="col-4">
-            <button type="button" class="btn btn-light">Physik</button>
+            <button type="button" class="btn btn-light" (click)="onSelect('Physik')">Physik</button>
         </div>
         <div class="col-4">
-            <button type="button" class="btn btn-light">Chemie</button>
+            <button type="button" class="btn btn-light" (click)="onSelect('Chemie')">Chemie</button>
         </div>
         <div class="col-4">
-            <button type="button" class="btn btn-light">Biologie</button>
+            <button type="button" class="btn btn-light" (click)="onSelect('Biologie')">Biologie</button>
         </div>
     </div>
 </div>

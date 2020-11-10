@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Age } from '../age';
-import { AGES } from '../mock-timeline';
+import { ContentService } from '../content.service';
+import { TimelineService } from '../timeline.service';
 
 @Component({
   selector: 'app-timeline',
@@ -9,16 +10,22 @@ import { AGES } from '../mock-timeline';
 })
 export class TimelineComponent implements OnInit {
 
-  ages = AGES;
+  ages: Age[] | undefined;
   selectedAge: Age | undefined;
 
-  constructor() { }
+  constructor(private timelineService: TimelineService, private contentService: ContentService) { }
 
   ngOnInit(): void {
+    this.getAges();
   }
 
-  onSelect(age: Age){
+  onSelect(age: Age) {
     this.selectedAge = age;
+    this.contentService.add(`TimelineComponent: Selected age id=${age.id}`);
+  }
+
+  getAges(): void {
+    this.timelineService.getAges().subscribe(ages => this.ages = ages);
   }
 
 }

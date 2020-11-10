@@ -1,0 +1,7 @@
+<div *ngIf="contentService.content.length">
+
+    <h2>Content</h2>
+    <button class="clear" (click)="contentService.clear()">clear</button>
+    <div *ngFor='let content of contentService.content'> {{content}} </div>
+
+</div>
