@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="row">
+        <h2>Timeline</h2>
+        <ul class="ages">
+            <li *ngFor="let age of ages" (click)="onSelect(age)" [class.selected]="age === selectedAge">
+                <span class="badge">{{age.id}}</span> {{age.name}} &lt;{{age.year}}&gt;
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="selectedAge">
+        {{selectedAge.resources}}
+    </div>
+</div>
