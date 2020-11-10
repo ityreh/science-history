@@ -7,6 +7,8 @@ import { ResourcesComponent } from './resources/resources.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { ContentComponent } from './content/content.component';
 import { TimelineDetailsComponent } from './timeline-details/timeline-details.component';
+import { AppRoutingModule } from './app-routing.module';
+import { ResourcesDetailsComponent } from './resources-details/resources-details.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { TimelineDetailsComponent } from './timeline-details/timeline-details.co
     ResourcesComponent,
     TimelineComponent,
     ContentComponent,
-    TimelineDetailsComponent
+    TimelineDetailsComponent,
+    ResourcesDetailsComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
