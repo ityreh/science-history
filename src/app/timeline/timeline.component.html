@@ -7,7 +7,5 @@
             </li>
         </ul>
     </div>
-    <div *ngIf="selectedAge">
-        {{selectedAge.resources}}
-    </div>
+    <app-timeline-details [age]="selectedAge"></app-timeline-details>
 </div>
